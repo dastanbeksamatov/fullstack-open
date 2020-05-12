@@ -1,0 +1,49 @@
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, fireEvent } from '@testing-library/react'
+import { prettyDOM } from '@testing-library/dom'
+import Note from './Note'
+
+test('renders content', () => {
+  const note = {
+    content: 'Component renders test note with jest',
+    important: true
+  }
+  const component = render(
+    <Note note={ note }/>
+  )
+  const li = component.container.querySelector('li')
+  console.log(prettyDOM(li))
+
+  expect(component.container).toHaveTextContent(
+    'Component renders test note with jest'
+  )
+
+  const element = component.getByText(
+    'Component renders test note with jest'
+  )
+  expect(element).toBeDefined()
+
+  const div = component.container.querySelector('.note')
+  expect(div).toHaveTextContent(
+    'Component renders test note with jest'
+  )
+})
+
+test('clicking the button triggers event handler once', () => {
+  const note = {
+    content: 'Component renders test note with jest',
+    important: true
+  }
+
+  const mockHandler = jest.fn()
+
+  const component = render(
+    <Note note={ note } toggleImportance={ mockHandler }/>
+  )
+  const button = component.getByText('make not important')
+  fireEvent.click(button)
+
+  expect(mockHandler.mock.calls).toHaveLength(1)
+})
+

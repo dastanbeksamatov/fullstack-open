@@ -1,0 +1,26 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "max-len": [1, 200],
+    "no-shadow": 0,
+    "no-plusplus": 0,
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": "off",
+    "consistent-return": "off",
+    "object-curly-newline": "off",
+    "react/prop-types": [
+      1,
+      {
+        "skipUndeclared": true
+      }
+    ]
+  }
+}

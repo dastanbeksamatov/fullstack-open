@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: config/dev.Dockerfile
+    image: coursestats_dev
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 8000:8000
+    container_name: coursestats_dev
+  studies_db:
+    image: mongo:4.2.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: mongo
+    ports:
+      - 27017:27017
+    container_name: coursestats_studies_db
+    volumes:
+      - ./config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_data:/data/db
+volumes:
+  mongo_data:

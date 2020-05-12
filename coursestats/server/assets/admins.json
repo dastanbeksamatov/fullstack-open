@@ -1,0 +1,15 @@
+{
+  "superadmins": ["mluukkai", "jakousa", "admin"],
+  "ohtu2019": {
+    "access": [{
+      "uid": "mluukkai",
+      "pages": ["admin", "miniproject"]
+    }, {
+      "uid": "jakousa",
+      "pages": ["admin", "miniproject"]
+    }, {
+      "uid": "admin",
+      "pages": ["admin", "miniproject"]
+    }]
+  }
+}

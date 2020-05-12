@@ -1,0 +1,10 @@
+#obv
+node_modules
+
+#eslint files
+.eslintrc.js
+
+#env files
+.env
+
+# temp
