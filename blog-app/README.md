@@ -2,6 +2,6 @@
 A simple blog app to store interesting articles
 
 # Technologies
-Node.js
-Express.js
-MongoDB
+1. Node.js
+2. Express.js
++ MongoDB
